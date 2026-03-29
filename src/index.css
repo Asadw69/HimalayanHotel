@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom Color Palette */
+  --color-secondary-fixed-dim: #7ad0ff;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-dim: #d8dadc;
+  --color-on-secondary: #ffffff;
+  --color-on-primary-container: #828da7;
+  --color-outline-variant: #c5c6cd;
+  --color-on-secondary-fixed: #001e2c;
+  --color-secondary: #00668a;
+  --color-tertiary-fixed: #e2e3df;
+  --color-background: #f7f9fb;
+  --color-inverse-primary: #bbc6e2;
+  --color-secondary-container: #00bdfd;
+  --color-secondary-fixed: #c3e8ff;
+  --color-on-primary-fixed-variant: #3c475d;
+  --color-surface-tint: #545e76;
+  --color-primary-fixed-dim: #bbc6e2;
+  --color-tertiary-container: #242724;
+  --color-tertiary: #101210;
+  --color-outline: #75777d;
+  --color-surface-container-lowest: #ffffff;
+  --color-primary-fixed: #d7e2ff;
+  --color-on-tertiary-container: #8c8e8a;
+  --color-primary-container: #1b263b;
+  --color-surface-container: #eceef0;
+  --color-surface-bright: #f7f9fb;
+  --color-tertiary-fixed-dim: #c6c7c3;
+  --color-on-primary: #ffffff;
+  --color-inverse-on-surface: #eff1f3;
+  --color-on-secondary-container: #004964;
+  --color-surface-container-low: #f2f4f6;
+  --color-on-error-container: #93000a;
+  --color-on-error: #ffffff;
+  --color-surface-variant: #e0e3e5;
+  --color-on-surface-variant: #45474d;
+  --color-on-secondary-fixed-variant: #004c69;
+  --color-on-tertiary: #ffffff;
+  --color-inverse-surface: #2d3133;
+  --color-on-background: #191c1e;
+  --color-surface: #f7f9fb;
+  --color-on-surface: #191c1e;
+  --color-on-primary-fixed: #101b30;
+  --color-on-tertiary-fixed-variant: #454745;
+  --color-error-container: #ffdad6;
+  --color-error: #ba1a1a;
+  --color-on-tertiary-fixed: #1a1c1a;
+  --color-primary: #051125;
+
+  /* Custom Font Pairing */
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  /* Custom Utilities */
+  --radius-xl: 1.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-body text-on-background selection:bg-secondary-container selection:text-white antialiased;
+  }
+}
+
+@layer components {
+  .material-symbols-outlined { 
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
+  }
+  
+  .glass-card { 
+    background: rgba(255, 255, 255, 0.6); 
+    backdrop-filter: blur(24px); 
+    @apply border border-white/20;
+  }
+
+  . peak-card { 
+    border-radius: 1.5rem 0 1.5rem 1.5rem; 
+  }
+
+  .scroll-indicator { 
+    height: 100px; 
+    width: 1px; 
+    @apply bg-primary-fixed-dim/30 relative;
+  }
+
+  .scroll-indicator::after { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 40%; 
+    @apply bg-secondary;
+  }
+
+  /* Improved Date Picker UI */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+  }
+
+  /* Custom input styling */
+  input, select, textarea {
+    @apply outline-none;
+  }
+}
